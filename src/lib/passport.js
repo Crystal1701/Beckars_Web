@@ -13,3 +13,4 @@ passport.use('local.registrarse', new LocalStrategy({
 //user:root
 //pass:123456
 //localhost:3306
+//.
