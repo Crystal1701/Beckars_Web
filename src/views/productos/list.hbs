@@ -1,0 +1,26 @@
+<div class="containner p-4">
+    <div class="row">
+        {{#each productos}}
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <a href="{{Precio}}" target="_blank">
+                            <h3 class="card-title text-uppercase">
+                                {{Nombre}}
+                            </h3>   
+                        </a>
+                        <p class="m-2">{{Descripcion}}</p>
+                        <p>{{timeago created_at}}</p>
+                        <a href="/productos/delete/{{idProductos}}" class="btn btn-danger">Borrar Producto</a>
+                        <a href="/productos/edit/{{idProductos}}" class="btn btn-secondary">Editar</a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md- mx-auto">
+                <p>Ya no queda mas productos.</p>
+                <a href="/productos/add">Crea Uno</a>
+            </div>    
+        {{/each}}
+    </div>
+</div>    

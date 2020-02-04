@@ -12,16 +12,10 @@ CREATE TABLE Usuario (
   Contraseña VARCHAR(15) NOT NULL
 );
 
-ALTER TABLE Usuario
-  ADD PRIMARY KEY (id);
-
-ALTER TABLE Usuario
-  MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
-
 DESCRIBE Usuario;
 
 INSERT INTO Usuario (id, Nombre, Apellidos, Usuario, Contraseña) 
-  VALUES (1,'Fernando','Salome','fsalome','password1')
+  VALUES (1,'Fernando','Salome','fsalome','password1'),
 		 (2,'Jean','Alvarez','jalvarez','password2');
 
 SELECT * FROM Usuario;
@@ -47,19 +41,9 @@ DESCRIBE links;
 
 SELECT * FROM links;
 
-CREATE TABLE Tipo_Producto(
-	idTipo_Producto INT(11) NOT NULL AUTO_INCREMENT,
-	Nombre VARCHAR(45) NOT NULL,
-	Descripcion VARCHAR(45) NOT NULL,
-	PRIMARY KEY (idTipo_Producto));
-    
 CREATE TABLE Productos (
-	idProductos INT(11) NOT NULL AUTO_INCREMENT,
+	idProductos INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	Nombre VARCHAR(45) NOT NULL,
-	Precio VARCHAR(5) NOT NULL,
-	Tipo_Producto_idTipo_Producto INT NOT NULL,
-	PRIMARY KEY (idProductos),
-	INDEX fk_Productos_Tipo_Producto_idx (Tipo_Producto_idTipo_Producto ASC) VISIBLE,
-	CONSTRAINT fk_Productos_Tipo_Producto FOREIGN KEY (Tipo_Producto_idTipo_Producto) REFERENCES Tipo_Producto (idTipo_Producto));
-
-
+	Precio DECIMAL(5,2) NOT NULL,
+	Descripcion VARCHAR(100)
+  );
